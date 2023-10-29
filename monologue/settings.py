@@ -19,7 +19,7 @@ DEBUG = True
 
 AUTH_USER_MODEL = 'account.User'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['monologue.onrender.com','127.0.0.1','localhost']
 
 # Application definition
 INSTALLED_APPS = [
