@@ -13,8 +13,9 @@ class create_profile(APIView):
     permission_classes = [IsAuthenticated]
     def post(self, request):
         data=request.data
-        data['user'] = request.user.id
-        data['email'] = request.user.email
+        user_id = request.user.id
+        email_id = request.user.email
+        data.update({"user":user_id,"email": email_id})
         serializer=createProfileSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
@@ -41,7 +42,10 @@ class post_videos(APIView):
     def post(self,request):
         try:
             data=request.data
-            data['user'] = request.user 
+            user_id = request.user.id
+            # Adding user_id to the data dictionary
+            data.update({"user":user_id})
+
             serializer=postserializer(data=data)
             if serializer.is_valid():
                 serializer.save()
