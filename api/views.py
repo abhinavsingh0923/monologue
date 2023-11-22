@@ -45,7 +45,6 @@ class post_videos(APIView):
             user_id = request.user.id
             # Adding user_id to the data dictionary
             data.update({"user":user_id})
-
             serializer=postserializer(data=data)
             if serializer.is_valid():
                 serializer.save()

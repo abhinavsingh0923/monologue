@@ -4,7 +4,7 @@ from api.models import *
 class postserializer(serializers.ModelSerializer):
     class Meta:
             model = post
-            fields ='__all__'
+            fields =('created_at','caption','video','user','id')
 
 class profileserializer(serializers.ModelSerializer):
 
